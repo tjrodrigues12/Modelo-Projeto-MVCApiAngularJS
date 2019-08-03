@@ -1,0 +1,11 @@
+﻿@{
+    Layout = "~/Views/_LayoutPage.cshtml";
+}
+
+@section scriptsSection{
+    @Scripts.Render("~/bundles/PortalSistemas/PortalTipoAcesso")
+}
+
+<div id="app" ng-controller="indexCtrl">
+    <div id="wrapperDiv" ng-view></div>
+</div>

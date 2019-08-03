@@ -1,0 +1,88 @@
+﻿<div id="mdlLogin" class="modal fade" data-keyboard="false" data-backdrop="static">
+
+    <div class="modal-dialog" cg-busy="[loadLogin, loadDominio]">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                <h4 class="modal-title">Login</h4>
+            </div>
+            <div class="modal-body overflow-visible">
+
+                <!--<div id="login">
+                    <iframe frameborder="0" scrolling="no" style="display: block; height: 250px; width: 340px;" src="http://www.gsi.ms.gov.br/loginCliente.aspx?nova_tela=s&cod_modulo=98&ambiente=producao"></iframe>
+                </div>-->
+
+                <div class="row">
+                    <div class="col-xs-12">
+                        <form novalidate name="formLogin" class="form-horizontal" autocomplete="off">
+
+                            <div class="form-group has-feedback" validation-decorator ng-if="!dadosLogin.tipoAcesso">
+                                <label class="col-xs-12 col-sm-3 col-md-3 control-label no-padding-right">Usuário</label>
+                                <div class="col-xs-12 col-sm-5">
+                                    <input type="text"
+                                           class="form-control"
+                                           name="usuario"
+                                           ng-model="dadosLogin.usuario"
+                                           validation="required" />
+                                    <span class="fa fa-user form-control-feedback" style="padding-top: 10px;"></span>
+                                </div>
+                            </div>
+
+                            <div class="form-group has-feedback" validation-decorator ng-if="dadosLogin.tipoAcesso">
+                                <label class="col-xs-12 col-sm-3 col-md-3 control-label no-padding-right">CPF</label>
+                                <div class="col-xs-12 col-sm-5">
+                                    <input type="text"
+                                           name="cpf"
+                                           class="form-control"
+                                           ui-br-cpf-mask
+                                           ng-model="dadosLogin.cpf"
+                                           validation="required" />
+                                    <span class="fa fa-user form-control-feedback" style="padding-top: 10px"></span>
+                                </div>
+                            </div>
+
+                            <div class="form-group has-feedback" validation-decorator>
+                                <label class="col-xs-12 col-sm-3 col-md-3 control-label no-padding-right">Senha</label>
+                                <div class="col-xs-12 col-sm-5">
+                                    <input type="password"
+                                           name="senha"
+                                           class="form-control"
+                                           ng-model="dadosLogin.senha"
+                                           validation="required" />
+                                    <span class="fa fa-lock form-control-feedback" style="padding-top: 10px"></span>
+                                </div>
+                            </div>
+                            <div class="form-group" validation-decorator ng-if="!dadosLogin.tipoAcesso">
+                                <label class="col-xs-12 col-sm-3 col-md-3 control-label no-padding-right">Domínio</label>
+                                <div class="col-xs-12 col-sm-5">
+                                    <drop-down name="dominioId"
+                                               ng-model="dadosLogin.dominio"
+                                               list="listaDominio"
+                                               list-id="dominio"
+                                               list-label="dominio"
+                                               width="223"
+                                               validation="required">
+                                    </drop-down>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <a href="#" class="pull-left" ng-if="!dadosLogin.tipoAcesso" ng-click="alterarAcesso()" style="padding-top: 5px">
+                    <i class="fa fa-graduation-cap bigger-150"> Acesso Portal do Professor Antigo</i>
+                </a>
+                <a href="#" class="pull-left black" ng-if="dadosLogin.tipoAcesso" ng-click="alterarAcesso()" style="padding-top: 5px">
+                    <i class="fa fa-user bigger-150"> Acesso GSI</i>
+                </a>
+                <button type="button"
+                        data-bb-handler="button"
+                        class="btn btn-sm btn-success"
+                        data-ng-click="realizarLogin()">
+                    <i class="ace-icon fa fa-check"></i>Acessar
+                </button>
+            </div>
+        </div>
+    </div>
+</div>

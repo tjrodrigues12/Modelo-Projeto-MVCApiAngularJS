@@ -1,0 +1,10 @@
+﻿<div class="tabbable">
+    <ul class="nav nav-tabs padding-12">
+        <li ng-repeat="tabItem in tabList" ng-class="{ active: currentTab == $index }">
+            <a data-toggle="tab" href="" ng-click="selectTab($index)">
+                {{tabItem}}
+            </a>
+        </li>
+    </ul>
+    <div class="tab-content" ng-transclude></div>
+</div>

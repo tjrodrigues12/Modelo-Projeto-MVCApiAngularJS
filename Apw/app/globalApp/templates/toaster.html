@@ -1,0 +1,18 @@
+﻿<div class="box-body">
+    <div ng-if="toastType == 'toast-success'" class="alert alert-success alert-dismissable">
+        <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+        <h4 ng-if="title"><i class="icon fa fa-check"></i>&nbsp;{{title}}</h4>{{message}}
+    </div>
+    <div ng-if="toastType == 'toast-info'" class="alert alert-info alert-dismissable">
+        <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+        <h4 ng-if="title"><i class="icon fa fa-info"></i>&nbsp;{{title}}</h4>{{message}}
+    </div>
+    <div ng-if="toastType == 'toast-warning'" class="alert alert-warning alert-dismissable">
+        <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+        <h4 ng-if="title"><i class="icon fa fa-warning"></i>&nbsp;{{title}}</h4>{{message}}
+    </div>
+    <div ng-if="toastType == 'toast-error'" class="alert alert-danger alert-dismissable">
+        <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+        <h4 ng-if="title"><i class="icon fa fa-remove"></i>{{title}}</h4>{{message}}
+    </div>
+</div>

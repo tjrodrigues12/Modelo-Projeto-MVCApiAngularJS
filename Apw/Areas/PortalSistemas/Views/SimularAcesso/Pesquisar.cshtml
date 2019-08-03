@@ -1,0 +1,100 @@
+﻿@{
+    Layout = null;
+}
+
+<div class="breadcrumbs" id="breadcrumbs">
+    <script type="text/javascript">
+        try { ace.settings.check('breadcrumbs', 'fixed') } catch (e) { }
+    </script>
+
+    <ul class="breadcrumb">
+        <li>
+            <i class="icon-home home-icon"></i>
+            <a href="">Portal de Sistemas</a>
+        </li>
+        <li class="active">Simular Acesso</li>
+    </ul>
+</div>
+
+<div class="page-content" cg-busy="[loadDados,loadAcesso]">
+    <div class="page-header">
+        <h1>
+            Simular Acesso
+        </h1>
+    </div>
+
+    <div class="row">
+        <div class="col-xs-12">
+            <div class="row">
+                <div class="col-xs-12">
+
+                    <div class="tabbable">
+                        <ul id="inbox-tabs" class="inbox-tabs nav nav-tabs padding-16 tab-size-bigger tab-space-1">
+                            <li class="active">
+                                <a data-toggle="tab" href="">
+                                    <i class="blue fa fa-search bigger-130"></i>
+                                    <span class="bigger-110">Pesquisar</span>
+                                </a>
+                            </li>
+                        </ul>
+                        <div class="tab-content no-border no-padding">
+                            <div class="tab-pane in active">
+                                <div class="message-container">
+                                    <div id="id-message-list-navbar" class="message-navbar align-left clearfix">
+                                        <div class="form-horizontal">
+                                            <form novalidate name="formPesquisa">
+
+                                                <div class="form-group">
+                                                    <label class="col-xs-12 col-sm-3 col-md-3 control-label no-padding-right">Pesquisar Por </label>
+                                                    <div class="col-xs-12 col-sm-5">
+
+                                                        <drop-down name="filtroAcesso"
+                                                                   ng-model="dados.filtro.filtroId"
+                                                                   list="filtro"
+                                                                   list-id="filtroId"
+                                                                   list-label="descricao">
+                                                        </drop-down>
+                                                    </div>
+                                                </div>
+
+                                                <div class="form-group">
+                                                    <label class="col-xs-12 col-sm-3 col-md-3 control-label no-padding-right">Buscar Por </label>
+                                                    <div class="col-xs-12 col-sm-5">
+                                                        <input type="text"
+                                                               class="width-100"
+                                                               ng-model="dados.filtro.busca" />
+                                                    </div>
+                                                </div>
+
+                                                <div class="form-group">
+                                                    <span class="col-xs-12 col-sm-3 col-md-3 control-label no-padding-right"></span>
+                                                    <div class="col-xs-12 col-sm-5">
+                                                        <button class="btn btn-primary"
+                                                                type="button"
+                                                                ng-click="pesquisar()">
+                                                            <i class="bigger-110"></i>
+                                                            Pesquisar
+                                                        </button>
+                                                    </div>
+                                                </div>
+
+                                            </form>
+                                        </div>
+                                    </div>
+
+                                    <div ng-if="dados.grid.data.length > 0">
+                                        <div class="table-header">
+                                            Resultados da Pesquisa
+                                        </div>
+                                        <div ui-grid="dados.grid" class="grid" ui-grid-pagination style="height: 374px">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

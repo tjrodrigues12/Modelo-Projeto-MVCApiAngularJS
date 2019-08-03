@@ -1,0 +1,76 @@
+﻿@{
+    Layout = null;
+}
+
+<div class="breadcrumbs" id="breadcrumbs">
+    <script type="text/javascript">
+        try { ace.settings.check('breadcrumbs', 'fixed') } catch (e) { }
+    </script>
+
+    <ul class="breadcrumb">
+        <li>
+            <i class="icon-home home-icon"></i>
+            <a href="">Pronatec</a>
+        </li>
+        <li class="active">Turma Mês</li>
+    </ul>
+</div>
+
+<div class="page-content" cg-busy="[]">
+    <div class="page-header">
+        <h1>
+            Consultar Alunos Ativos Programas
+        </h1>
+    </div>
+
+    <div class="row">
+        <div class="col-xs-12">
+            <div class="row">
+                <div class="col-xs-12">
+
+                    <div class="tabbable">
+                        <ul id="inbox-tabs" class="inbox-tabs nav nav-tabs padding-16 tab-size-bigger tab-space-1">
+                            <li class="active">
+                                <a data-toggle="tab" href="">
+                                    <i class="blue ace-icon fa fa-search bigger-130"></i>
+                                    <span class="bigger-110">Pesquisar</span>
+                                </a>
+                            </li>
+                            <li class="li-new-mail pull-right">
+                                <a data-toggle="tab" ng-click="pesquisaDetalhada()" href="" class="btn-new-mail">
+                                    <span class="btn btn-small btn-primary no-border">
+                                        <i class="fa fa-filter bigger-130"></i>
+                                        <span class="bigger-110">Pesquisa Detalhada</span>
+                                    </span>
+                                </a>
+                            </li>
+                        </ul>
+                        
+                        <div class="tab-content no-border no-padding">
+                            <div class="tab-pane in active">
+                                <div class="message-container">
+                                    <div id="id-message-list-navbar" class="message-navbar align-left clearfix">
+                                        <div class="form-horizontal">
+                                            <div class="form-group" validation-decorator ng-if="!acesso">
+                                                <label>Domínio</label>
+                                                <div>
+                                                    <drop-down name="dominioId"
+                                                               ng-model="dadosLogin.dominioId"
+                                                               list="dados.listaDominio"
+                                                               list-id="dominioId"
+                                                               list-label="dominio"
+                                                               validation="required">
+                                                    </drop-down>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

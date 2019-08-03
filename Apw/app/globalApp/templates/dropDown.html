@@ -1,0 +1,19 @@
+﻿<ui-select name="{{drop_name}}"
+           ngModel="ngModel"
+           theme="select2"
+           style="{{drop_style}}"
+           on-select="{{onSelected($select)}}"
+           ng-disabled="!autoComplete && ((disabled) || !list.length > 0)"
+           search-enabled="drop_autoComplete || list.length > 10">
+    <ui-select-match allow-clear="{{drop_allowClear}}"
+                     placeholder="{{(list | globalFilter : listFilter : listFilterParams | filter : $select.search).length > 0 && $select.selected ? ($select.selected[drop_label] | globalFilter : drop_labelFilter) : (list | globalFilter : listFilter : listFilterParams | filter : $select.search).length == 0 && !$select.selected && $select.search ? drop_noResult : drop_placeHolder}}"
+                     title="{{list.length > 0 && $select.selected ? ($select.selected[drop_label] | globalFilter : drop_labelFilter) : drop_placeHolder}}">
+        <span ng-bind-html="(list | globalFilter : listFilter : listFilterParams | filter : $select.search).length > 0 ? ($select.selected[drop_label] | globalFilter : drop_labelFilter) : drop_noResult"></span>
+    </ui-select-match>
+    <ui-select-choices repeat="x[drop_id] as x in (list | globalFilter : listFilter : listFilterParams | filter : $select.search | filter : $select.search) track by x[drop_id]"
+                       refresh="drop_autoComplete ? drop_refresh($select.search) : ''"
+                       refresh-delay="drop_autoComplete ? drop_refreshDelay : ''"
+                       position="down">
+        <span ng-bind-html="x[drop_label] | globalFilter : drop_labelFilter | customHighlight : $select.search"></span>
+    </ui-select-choices>
+</ui-select>

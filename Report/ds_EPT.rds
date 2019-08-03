@@ -1,0 +1,8 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<RptDataSource xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" Name="ds_EPT">
+  <ConnectionProperties>
+    <Extension>SQL</Extension>
+    <ConnectString>Data Source=S0458\HOMITC002;Initial Catalog=SED_EPT_Homologacao</ConnectString>
+  </ConnectionProperties>
+  <DataSourceID>bced24a7-1fd2-492d-8f47-8f7251b5803b</DataSourceID>
+</RptDataSource>
